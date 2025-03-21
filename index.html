@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG">
+  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
+  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>TaoAvatar</title>
+  <!-- <link rel="icon" type="image/x-icon" href="static/images/favicon.ico"> -->
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+
+  <script src="https://unpkg.com/three@0.112.0/build/three.js"></script>
+  <script src="https://unpkg.com/three@0.112.0/examples/js/loaders/OBJLoader.js"></script>
+  <script src="https://unpkg.com/three@0.112.0/examples/js/controls/OrbitControls.js"></script>
+
+  <script type="text/javascript" src="static/js/model_viewer.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      create_avatar_scene("model_viewer");
+      load_object(0);
+    });
+  </script>
+
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+      </a>
+  </div>
+  <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+          <a class="navbar-item" href=https://github.com/PixelAI-Team>
+        <span class="icon">
+          <i class="fas fa-home"></i>
+        </span>
+          </a>
+
+          <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">
+                  More Research
+              </a>
+              <div class="navbar-dropdown">
+                  <a class="navbar-item" href="https://PixelAI-Team.github.io/GaussianTalker/">
+                      GaussianTalker
+                  </a>
+              </div>
+          </div>
+      </div>
+  </div>
+</nav>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-3 publication-title"><span
+              style="color: #FF6A00  ;font-weight: bolder;">TaoAvatar</span>: Real-Time Lifelike Full-Body Talking Avatars for Augmented Reality via 3D Gaussian Splatting </h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="https://PixelAI-Team.github.io/TaoAvatar/" target="_blank">Jianchuan Chen</a><sup>*</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://PixelAI-Team.github.io/TaoAvatar/" target="_blank">Jingchuan Hu</a><sup>*</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://PixelAI-Team.github.io/TaoAvatar/" target="_blank">GaiGe Wang</a><sup>*</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://PixelAI-Team.github.io/TaoAvatar/" target="_blank">Zhonghua Jiang</a>,
+              </span>
+              <span class="author-block">
+                <a href="https://PixelAI-Team.github.io/TaoAvatar/" target="_blank">TianSong Zhou</a>,
+              </span>
+              <br>
+              <span class="author-block">
+                <a href="https://PixelAI-Team.github.io/TaoAvatar/" target="_blank">Zhiwen Chen</a><sup>‡</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://PixelAI-Team.github.io/TaoAvatar/" target="_blank">Chengfei Lv</a><sup>†<sup>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">Alibaba Group, HangZhou, China<br><b>CVPR 2025</b></span>
+              <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution.   <sup>‡</sup>Project Leader. <sup>†</sup>Corresponding author.</small></span>
+            </div>
+
+            <!-- <div class="is-size-5 publication-authors">
+              <span class="author-block"><i>(Website Under Construction)</i></span>
+            </div> -->
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                         <!-- Arxiv PDF link -->
+                      <span class="link-block">
+                        <a href="https://drive.google.com/file/d/1vipF2XCPstT7R3ypdogcXZqOXcbWo8iR/view\?usp\=drive_link" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper(60MB)</span>
+                      </a>
+                    </span>
+
+                <!-- ArXiv abstract Link -->
+                <span class="link-block">
+                  <a href="https://PixelAI-Team.github.io/TaoAvatar/" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+
+                <span class="link-block">
+                  <a href="https://PixelAI-Team.github.io/TaoAvatar/" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+
+                <!-- Github link -->
+                <span class="link-block">
+                  <a href="https://huggingface.co/datasets/PixelAI-Team/TalkBody4D" target="_blank"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <img src="static/images/hf_logo.png" alt="Dataset">
+                    </span>
+                    <span>Dataset</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <a href="https://github.com/alibaba/MNN/blob/master/apps/Android/Mnn3dAvatar/README.md" target="_blank"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <img src="static/images/mnn_logo.png" alt="Icon" class="custom-icon">
+                    </span>
+                    <span>Mobile Demo</span>
+                  </a>
+                </span>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Teaser video-->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="static/images/teaser.png" alt="MY ALT TEXT"/>
+      <h2 class="subtitle has-text-centered">
+        TaoAvatar generates photorealistic, topology-consistent 3D full-body avatars from multi-view sequences, fully controllable in pose, gesture, and expression. 
+        It provides high-quality, real-time rendering with low storage requirements, compatible across various mobile and AR devices like the Apple Vision Pro.
+      </h2>
+    </div>
+  </div>
+</section>
+<!-- End teaser video -->
+
+<!-- Vision Pro Demo video-->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Demos on Apple Vison Pro</h2>
+        <div class="content has-text-justified">
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small" style="border-radius: 50px; padding: 10px 0; margin-bottom: 20px; max-width: 1200px; margin: auto; text-align: center;">
+  <!-- Centered Heading Text -->
+  <h2 class="subtitle has-text-centered" style="font-family: 'Poppins', sans-serif; font-weight: 600; margin-top: 0px; margin-bottom: 20px; text-align: center; font-size: 2.0em;">
+    AI Agent on the Vison Pro
+  </h2>
+
+  <!-- Container for videos -->
+  <div class="gif-container" style="display: flex; justify-content: center; gap: 20px; max-width: 1000px; flex-wrap: wrap;margin: auto;">
+    <!-- Video and Viewer Link 1 -->
+    <div class="video-viewer-container" style="text-align: center; max-width: 1000px; margin: auto;">
+      <div class="content has-text-justified">
+        <p>
+        We deployed a <span style="color: red;">3D digital human agent</span>  on the Apple Vision Pro, which
+        interacts with users through an ASR-LLM-TTS pipeline. Facial expressions
+        and gestures are dynamically controlled by an Audio2BS model, allowing
+        the agent to respond naturally with synchronized speech, expressions, 
+        and movements. 
+        </p>
+        <video poster="" id="tree1" autoplay controls muted loop style="width: 100%; max-width: 1000px;">
+          <source src="/static/videos/AIAgent_low_low.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="subtitle has-text-centered" style="font-family: 'Poppins', sans-serif; font-weight: 600; margin-top: 100px; margin-bottom: 20px; text-align: center; font-size: 2.0em;">
+    TaoAvatars on the Vision Pro
+  </h2>
+
+  <div class="gif-container" style="display: flex; justify-content: center; gap: 20px; max-width: 1200px; flex-wrap: wrap;margin: auto;">
+    <div class="video-viewer-container" style="text-align: center; max-width: 1000px;margin: auto;">
+      <div class="content has-text-justified">
+        <p>
+        TaoAvatar achieves state-of-the-art rendering quality while running in <span style="color: red;">real-time</span> 
+        across various devices, maintaining <span style="color: red;">90 FPS</span> on high-definition stereo devices 
+          such as the Apple Vision Pro
+        </p>
+      </div>
+
+      <div class="container">
+        <div id="results-carousel" class=" carousel results-carousel">        
+          <div class="item item-family">
+            <video poster="" id="family" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/visionpro_caseshow/shenqian_01_low.mp4"
+                      type="video/mp4">
+            </video>
+          </div>   
+          <div class="item item-family">
+            <video poster="" id="family" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/visionpro_caseshow/shenqian_02_low.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-family">
+            <video poster="" id="family" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/visionpro_caseshow/shenqian_03_low.mp4"
+                      type="video/mp4">
+            </video>
+          </div>   
+          <!-- <div class="item item-family">
+            <video poster="" id="family" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/visionpro_caseshow/shenqian_04_low.mp4"
+                      type="video/mp4">
+            </video>
+          </div>    -->
+          <div class="item item-family">
+            <video poster="" id="family" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/visionpro_caseshow/shenqian_05_low.mp4"
+                      type="video/mp4">
+            </video>
+          </div>   
+          <div class="item item-family">
+            <video poster="" id="family" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/visionpro_caseshow/coco_06_low.mp4"
+                      type="video/mp4">
+            </video>
+          </div>   
+          <div class="item item-family">
+            <video poster="" id="family" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/visionpro_caseshow/xiaoge_07_low.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-family">
+            <video poster="" id="family" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/visionpro_caseshow/shuochuan_08_low.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-family">
+            <video poster="" id="family" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/visionpro_caseshow/actor08_09_low.mp4"
+                      type="video/mp4">
+            </video>
+          </div>             
+        </div>
+        <!-- <p>The results shown are derived from <strong>two or three sparse views as input</strong>.</p> -->
+      </div>
+    </div>
+  </div>
+
+  <h2 class="subtitle has-text-centered" style="font-family: 'Poppins', sans-serif; font-weight: 600; margin-top: 100px; margin-bottom: 20px; text-align: center; font-size: 2.0em;">
+    Relighting on the Vison Pro
+  </h2>
+
+    <!-- Container for videos -->
+  <div class="gif-container" style="display: flex; justify-content: center; gap: 20px; max-width: 1200px; flex-wrap: wrap;margin: auto;">
+  <!-- Video and Viewer Link 1 -->
+    <div class="video-viewer-container" style="text-align: center; max-width: 1000px;margin: auto;">
+      <div class="content has-text-justified">
+        <p>
+        Our method can obtain high-quality normal, which can be used for real-time image-based <span style="color: red;">relighting</span>.
+        </p>
+        <video poster="" id="tree1" autoplay controls muted loop style="width: 100%; max-width: 1200px;">
+          <source src="/static/videos/religting1125_low.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Vision Pro Demo video-->
+
+
+<!-- Paper abstract -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+          Realistic 3D full-body talking avatars hold great potential in AR, with applications ranging from e-commerce live streaming to holographic communication. Despite advances in 3D Gaussian Splatting (3DGS) for lifelike avatar creation, existing methods struggle with fine-grained control of facial expressions and body movements in full-body talking tasks.
+          Additionally, they often lack sufficient details and cannot run in real-time on mobile devices.We present TaoAvatar, a high-fidelity, lightweight, 3DGS-based full-body talking avatar driven by various signals.
+          Our approach starts by creating a personalized clothed human parametric template that binds Gaussians to represent appearances.
+          We then pre-train a StyleUnet-based network to handle complex pose-dependent non-rigid deformation, which can capture high-frequency appearance details but is too resource-intensive for mobile devices.
+          To overcome this, we "bake" the non-rigid deformations into a lightweight MLP-based network using a distillation technique and develop blend shapes to compensate for details.
+          Extensive experiments show that TaoAvatar achieves state-of-the-art rendering quality while running in real-time across various devices, maintaining <span style="color: red;">90 FPS</span> on high-definition stereo devices such as the Apple Vision Pro.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+<!-- Paper Method -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Concurrent Work. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Method Overview</h2>
+        <div class="content has-text-justified">
+          <img src="./static/images/method_overview.png">
+
+          <p><strong>Overall Framework of TaoAvatar</strong>. Our pipeline begins by reconstructing (a) a cloth-extended SMPLX mesh with aligned Gaussian textures. To address complex dynamic non-rigid deformations, (b) we employ a teacher StyleUnet to learn pose-dependent non-rigid maps, which are then baked into a lightweight student MLP to infer non-rigid deformations of our template mesh. For high-fidelity rendering, (c) we introduce learnable Gaussian blend shapes to enhance appearance details.</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Paper Method -->
+
+<!-- Paper CaseShow -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">TaoAvatars Case Show</h2>
+        <div class="content has-text-justified">
+          <p>
+          We showcase various high-fidelity full-body avatar synthesis results generated by our method, highlighting the versatility and accuracy of our approach.
+          <p>
+          <video poster="" id="tree1" autoplay controls muted loop style="width: 100%; max-width: 1200px;">
+            <source src="/static/videos/caseshow_low.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+      </div>  
+    </div>
+  </div>
+</section>
+<!-- End Paper CaseShow -->
+
+<!-- Comparison -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Comparisons</h2>
+        <h3 class="title is-6">Qualitative Results</h3>
+        <div class="content has-text-justified">
+          <video poster="" id="tree1" autoplay controls muted loop style="width: 100%; max-width: 1000px;">
+            <source src="/static/videos/comparisons_fullbodytalking_01_low.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <video poster="" id="tree1" autoplay controls muted loop style="width: 100%; max-width: 1000px;">
+            <source src="/static/videos/comparisons_expr_01_low.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <!-- <img src="static/images/comparisons.png" alt="MY ALT TEXT"/> -->
+          <p>
+            Our method outperforms state-of-the-art methods by producing clearer clothing dynamics and enhanced facial details.
+          <p>
+        </div>
+      </div>  
+    </div>
+  </div>
+</section>
+
+<!-- Dataset-->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Datasets</h2>
+        <p class="has-text-justified">
+          Our dataset, 
+          <strong>TalkBody4D</strong>
+          , contains eight multi-view image sequences.
+          They are captured with 59 well-calibrated RGB cameras in 20 fps, with a resolution of 3000×4000 and lengths ranging from 800 to 1000 frames. 
+          We use the data to evaluate our method for building animatable human body avatars.
+        <p>
+        <br>
+        <p class="has-text-justified">
+          To request the dataset, please visit our <a href="https://huggingface.co/datasets/PixelAI-Team/TalkBody4D" target="_blank">HuggingFace repository</a>, complete the required login information, 
+            and submit the corresponding <a href="https://forms.gle/eC2aLRXZ8DAdKcis7" target="_blank">request form</a>. 
+            We will perform dual verification of your identity and grant access permissions on HuggingFace after validation.
+        </p>
+
+        <div><canvas id="model_viewer"
+            style="border:#000000;border-radius: 10px; width:100%; height: 400px; border-width: 1px;"></canvas></div>
+        </p>
+
+        <div class="buttons has-addons is-centered">
+          <button id="actor_button1" class="button" onclick="load_object(0);">SQ_01</button>
+          <button id="actor_button2" class="button" onclick="load_object(1);">SQ_02</button>
+          <button id="actor_button3" class="button" onclick="load_object(2);">SC_01</button>
+          <button id="actor_button4" class="button" onclick="load_object(3);">SC_02</button>
+          <button id="actor_button5" class="button" onclick="load_object(4);">CC_01</button>
+          <button id="actor_button6" class="button" onclick="load_object(5);">CC_02</button>
+          <button id="actor_button7" class="button" onclick="load_object(6);">XG_01</button>
+          <button id="actor_button8" class="button" onclick="load_object(7);">XG_02</button>
+        </div>
+
+        <p class="has-text-justified">
+          The above model viewer shows examples of the per-frame mesh reconstructions for the actors in the dataset. It also visualizes the camera locations -- please note that you can adjust the viewpoint with the cursor.
+        </p>
+
+      </div>  
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>. <br> The mesh viewer code is borrowed from <a href="https://actors-hq.com/" target="_blank">ActorHQ</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
